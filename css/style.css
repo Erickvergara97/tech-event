@@ -1,10 +1,11 @@
 * {
   margin: 0;
   padding: 0;
-  list-style: none;
   text-decoration: none;
   border: none;
   outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 h1 {
@@ -19,6 +20,7 @@ h2 {
 p {
   margin-top: 5px;
   color: white;
+  padding: 15px;
 }
 
 header {
@@ -30,37 +32,115 @@ header {
   border-bottom: solid 5px lightblue;
   background-image: url(https://i.pinimg.com/originals/ab/65/25/ab6525b299477019027ddbd33a90c4b7.jpg);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  position: fixed;
 }
 
-img {
-  height: 50px;
+/*AQUI COMIENZA EL MENU HAMBURGUESA*/
+.menu {
+  position: fixed;
   width: 100%;
-}
-
-.barra {
-  width: calc(100%-0px);
+  height: 50px;
   padding: 5px;
-  background-color: black;
-  height: 20px;
-  border-bottom: solid 5px lightblue;
+  top: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  background-color: black;
+  border-bottom: solid 5px lightblue;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
-.seccionesbarra {
-  font-size: 11px;
-  width: 80px;
-  padding: 1px;
-  background-color: lightblue;
-  height: auto;
+.menu ul {
+  width: 100%;
+  position: absolute;
+  background-color: gray;
+  margin-top: 16px;
+  right: 0%;
+  list-style: none;
+  overflow: hidden;
+  height: 0%;
+  -webkit-transition: height 0.5s ease-in-out;
+  transition: height 0.5s ease-in-out;
+}
+
+.menu ul li {
+  position: relative;
+}
+
+.menu ul li a {
+  display: block;
+  position: relative;
+  color: lightblue;
+  padding: 16px 5%;
+  width: auto;
+}
+
+.menu ul li a:hover {
   color: black;
-  text-align: center;
 }
 
+.menu li:hover {
+  background-color: lightblue;
+}
+
+.menu input[type="checkbox"]:checked ~ ul {
+  height: 220px;
+  -webkit-transition: height 0.5s ease-in-out;
+  transition: height 0.5s ease-in-out;
+  -moz-transition: height 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  -webkit-transition: 0.5s ease-in-out;
+}
+
+.menu .barra input {
+  display: block;
+  width: 30px;
+  height: 30px;
+  opacity: 0;
+  z-index: 2;
+  position: absolute;
+  cursor: pointer;
+}
+
+.menu .barra span {
+  display: block;
+  position: relative;
+  width: 30px;
+  height: 2.5px;
+  margin-top: 6.5px;
+  z-index: 1;
+  -webkit-transform-origin: 3px 0px;
+          transform-origin: 3px 0px;
+  background-color: lightblue;
+  -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease, -webkit-transform 0.5s ease;
+}
+
+.menu .barra span:hover {
+  background-color: black;
+}
+
+.menu .barra input[type="checkbox"]:checked ~ span {
+  -webkit-transform: rotate(45deg) translate(2px, -3px);
+          transform: rotate(45deg) translate(2px, -3px);
+}
+
+.menu .barra input[type="checkbox"]:checked ~ span:nth-last-child(3) {
+  -webkit-transform: rotate(0deg) scale(1px, 0px);
+          transform: rotate(0deg) scale(1px, 0px);
+  opacity: 0;
+}
+
+.menu .barra input[type="checkbox"]:checked ~ span:nth-last-child(2) {
+  -webkit-transform: rotate(-45deg) translate(3px, 0px);
+          transform: rotate(-45deg) translate(3px, 0px);
+}
+
+/*AQUI TERMINA EL MENU HAMBURGUESA*/
 body {
   background-color: purple;
   color: lightblue;
@@ -109,9 +189,11 @@ section .mapa {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+  z-index: 0;
 }
 
 section main {
+  padding-top: 100px;
   height: auto;
   width: 100%;
   -webkit-box-sizing: border-box;
