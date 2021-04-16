@@ -13,7 +13,7 @@ h1 {
 }
 
 h2 {
-  margin: 10px 0;
+  margin: 10px 0 0 10px;
   font-size: 20px;
 }
 
@@ -47,16 +47,21 @@ header {
   display: flex;
   background-color: black;
   border-bottom: solid 5px lightblue;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: 1;
 }
 
 .menu ul {
   width: 100%;
   position: absolute;
   background-color: gray;
-  margin-top: 16px;
+  top: 50px;
   right: 0%;
   list-style: none;
   overflow: hidden;
@@ -94,7 +99,7 @@ header {
   -webkit-transition: 0.5s ease-in-out;
 }
 
-.menu .barra input {
+.menu input {
   display: block;
   width: 30px;
   height: 30px;
@@ -104,7 +109,7 @@ header {
   cursor: pointer;
 }
 
-.menu .barra span {
+.menu span {
   display: block;
   position: relative;
   width: 30px;
@@ -120,22 +125,22 @@ header {
   transition: transform 0.5s ease, opacity 0.5s ease, -webkit-transform 0.5s ease;
 }
 
-.menu .barra span:hover {
+.menu span:hover {
   background-color: black;
 }
 
-.menu .barra input[type="checkbox"]:checked ~ span {
+.menu input[type="checkbox"]:checked ~ span {
   -webkit-transform: rotate(45deg) translate(2px, -3px);
           transform: rotate(45deg) translate(2px, -3px);
 }
 
-.menu .barra input[type="checkbox"]:checked ~ span:nth-last-child(3) {
+.menu input[type="checkbox"]:checked ~ span:nth-last-child(3) {
   -webkit-transform: rotate(0deg) scale(1px, 0px);
           transform: rotate(0deg) scale(1px, 0px);
   opacity: 0;
 }
 
-.menu .barra input[type="checkbox"]:checked ~ span:nth-last-child(2) {
+.menu input[type="checkbox"]:checked ~ span:nth-last-child(2) {
   -webkit-transform: rotate(-45deg) translate(3px, 0px);
           transform: rotate(-45deg) translate(3px, 0px);
 }
@@ -193,12 +198,16 @@ section .mapa {
 }
 
 section main {
-  padding-top: 100px;
+  margin-top: 100px;
   height: auto;
   width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background-color: #4b0064;
+}
+
+section nav {
+  z-index: 0;
 }
 
 section form {
@@ -213,8 +222,7 @@ section form {
 
 section .boton {
   margin: 20px;
-  height: 30px;
-  width: 50px;
+  padding: 12px;
 }
 
 footer {
@@ -225,10 +233,6 @@ footer {
 }
 
 @media screen and (min-width: 568px) {
-  .seccionesbarra {
-    width: 240px;
-    height: auto;
-  }
   section {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -237,21 +241,24 @@ footer {
   }
   section main {
     width: 50%;
+    margin-top: 120px;
+    height: auto;
   }
   section form {
     display: block;
-    width: 50%;
-    margin: 2%;
+    width: 40%;
+    margin: 120px 2% 0 4%;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
+    height: 10%;
   }
   section form label {
     display: block;
     height: 50px;
   }
-  section form input {
+  section form input[type="text"] {
     height: 40px;
-    width: 50%;
+    width: 60%;
   }
 }
 /*# sourceMappingURL=style.css.map */

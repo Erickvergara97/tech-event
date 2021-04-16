@@ -16,7 +16,7 @@ h1{
     font-size: 25px;
 }
 h2{
-    margin: 10px 0;
+    margin: 10px 0 0 10px;
     font-size: 20px;
 };
 p{
@@ -49,13 +49,15 @@ header{
     display: flex;
     background-color: $header;
     border-bottom: solid 5px $secondary-color;
-    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+    z-index: 1;
     
     ul {
         width: 100%;
         position: absolute;
         background-color: gray;
-        margin-top: 16px;
+        top: 50px;
         right: 0%;
         list-style: none;
         overflow: hidden;
@@ -89,51 +91,48 @@ header{
     }
 
     
-    .barra{
+  
         
-        input {
-            display: block;
-            width: 30px;
-            height: 30px;
-            opacity: 0;
-            z-index: 2;
-            position: absolute;
-            cursor: pointer;
-        };
-        span{
-            display: block;
-            position: relative;
-            width: 30px;
-            height: 2.5px;
-            margin-top: 6.5px;
-            z-index: 1;
-            transform-origin: 3px 0px;
-            background-color: $secondary-color;
-            transition: transform 0.5s ease, opacity 0.5s ease;
-        };
-        span:hover{
-            background-color: black;
-        }
-
-
-
-        input[type="checkbox"]:checked~span{
-            transform: rotate(45deg) translate(2px,-3px);
-        }
-        input[type="checkbox"]:checked~span:nth-last-child(3){
-            transform: rotate(0deg) scale(1px,0px);
-            opacity: 0;
-        }
-        input[type="checkbox"]:checked~span:nth-last-child(2){
-            transform: rotate(-45deg) translate(3px, 0px);
-        }
+    input {
+        display: block;
+        width: 30px;
+        height: 30px;
+        opacity: 0;
+        z-index: 2;
+        position: absolute;
+        cursor: pointer;
+    };
+    span{
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 2.5px;
+        margin-top: 6.5px;
+        z-index: 1;
+        transform-origin: 3px 0px;
+        background-color: $secondary-color;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+    };
+    span:hover{
+        background-color: black;
     }
+
+
+
+    input[type="checkbox"]:checked~span{
+        transform: rotate(45deg) translate(2px,-3px);
+    }
+    input[type="checkbox"]:checked~span:nth-last-child(3){
+        transform: rotate(0deg) scale(1px,0px);
+        opacity: 0;
+    }
+    input[type="checkbox"]:checked~span:nth-last-child(2){
+        transform: rotate(-45deg) translate(3px, 0px);
+    }
+    
 };
-
-
-
-
 /*AQUI TERMINA EL MENU HAMBURGUESA*/
+
 body{
     background-color: $primary-color;
     color: $secondary-color;
@@ -173,12 +172,15 @@ body{
     };
     
     main {
-        padding-top: 100px;
+        margin-top: 100px;
         height: auto;
         width: 100%;
         box-sizing: border-box;
         background-color: $terciary-color;
     };
+    nav{
+        z-index: 0;
+    }
 
 
 
@@ -197,8 +199,7 @@ body{
 
     .boton {
         margin: 20px;
-        height: 30px;
-        width: 50px;
+        padding: 12px;
     };
 };
 
@@ -212,29 +213,29 @@ footer{
 
 
 @media screen and (min-width: 568px){
-    .seccionesbarra{
-        width: 240px;
-        height: auto;
-    };
+    
     section{
         flex-direction: row;
         main{
             width: 50%;
+            margin-top: 120px;
+            height: auto;
         };
         
         form {
             display: block;
-            width: 50%;
-            margin: 2%;
+            width: 40%;
+            margin: 120px 2% 0 4%;
             box-sizing: border-box;
+            height:10%;
             
             label {
                 display: block;
                 height: 50px;
             };
-            input {
+            input[type="text"] {
                 height: 40px;
-                width: 50%;
+                width: 60%;
             };
         };
     };
