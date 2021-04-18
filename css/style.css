@@ -233,6 +233,42 @@ footer {
 }
 
 @media screen and (min-width: 568px) {
+  .menu ul {
+    top: 0;
+    height: auto;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    background-color: black;
+  }
+  .menu ul li {
+    background-color: lightblue;
+    border-radius: 15%;
+    border: solid 2px purple;
+  }
+  .menu ul li a {
+    padding: 5px;
+    color: black;
+  }
+  .menu ul li:hover {
+    background-color: rgba(173, 216, 230, 0.733);
+  }
+  .menu ul li:active {
+    background-color: purple;
+  }
+  .menu input[type="checkbox"] {
+    display: none;
+  }
+  .menu span {
+    display: none;
+  }
   section {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;

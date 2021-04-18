@@ -121,13 +121,13 @@ header{
 
     input[type="checkbox"]:checked~span{
         transform: rotate(45deg) translate(2px,-3px);
-    }
-    input[type="checkbox"]:checked~span:nth-last-child(3){
-        transform: rotate(0deg) scale(1px,0px);
-        opacity: 0;
-    }
-    input[type="checkbox"]:checked~span:nth-last-child(2){
-        transform: rotate(-45deg) translate(3px, 0px);
+        &:nth-last-child(3){
+            transform: rotate(0deg) scale(1px,0px);
+            opacity: 0;
+        }
+        &:nth-last-child(2){
+            transform: rotate(-45deg) translate(3px, 0px);
+        }   
     }
     
 };
@@ -213,7 +213,44 @@ footer{
 
 
 @media screen and (min-width: 568px){
+
+    .menu{
+        ul{
+            top: 0;
+            height: auto;
+            position:relative;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            background-color: $header;
+            li{
+                background-color: $secondary-color;
+                border-radius: 15%;
+                border: solid 2px $primary-color;
+               a{
+                   padding: 5px;
+                   color: $header;
+               };
+               &:hover{
+                   background-color: rgba(173, 216, 230, 0.733);
+               };
+               &:active{
+                   background-color: $primary-color;
+               }
+            };
+        };
+        input[type="checkbox"]{
+            display: none;
+        };
+        span{
+            display: none;
+        };
+    };
     
+
+
+
+
     section{
         flex-direction: row;
         main{
